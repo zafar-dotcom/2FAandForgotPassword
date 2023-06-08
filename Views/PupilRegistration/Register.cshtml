@@ -1,0 +1,164 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model IPMO.Models.PupilRegistration;
+
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ENROLLMENT</title>
+    <a href="~/lib/jquery/dist/jquery.min.map">~/lib/jquery/dist/jquery.min.map</a>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/alertify.js/alertify.bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+
+    <script src="~/lib/hideshowpassword/hideshowpassword.js"></script>
+    <script src="~/lib/hideshowpassword/hideshowpassword.min.js"></script>
+
+    <link href="~/Scripts/passwordscheck.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!------ Include the above in your HEAD tag ---------->
+    @using (Html.BeginForm("Register", "PupilRegistration", FormMethod.Post))
+    {
+        <div class="container register">
+            <div class="row">
+                @*<div class="col-md-3 register-left">
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+            <h3>Welcome</h3>
+            <p>
+            This Example is for learning Basic Login and Registration Using ADO.NET in MVC.
+            <br />Hope this will boast your Knowledge.
+            </p>
+            </div>*@
+                <div class="col-md-9 register-right">
+                    @*<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                        <li class="nav-item ">
+                            <h3>
+                                <a class="nav-link active " id="home-tab" data-toggle="tab" href="../PupilRegistration/Register" role="tab" aria-controls="home" aria-selected="true">User Register</a>
+                            </h3>
+                        </li>
+
+                    </ul>*@
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading"></h3>
+                            <div class="row register-form ">
+
+                                <div class="col-md-6">
+                                    <h3>Pupil Register </h3>
+                                    <br>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(e => e.FirstName, new { @class = "form-control", placeholder = "First Name *" })
+                                        @Html.ValidationMessageFor(e => e.FirstName ,null, new { @class = "text-danger" })
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(e => e.LastName, new { @class = "form-control", placeholder = "Last Name *" })
+                                        @Html.ValidationMessageFor(e => e.LastName ,null, new { @class = "text-danger" })
+                                    </div>             
+                                    <br>                                           
+                                @*<div class="col-md-6">*@
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(e => e.Email, new { @class = "form-control", placeholder = "Enter Email *" })
+                                        @Html.ValidationMessageFor(e => e.Email,null, new { @class = "text-danger" })
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(e => e.PhoneNumber, new { @class = "form-control", placeholder = "Enter Phone *" })
+                                        @Html.ValidationMessageFor(e => e.PhoneNumber ,null, new { @class = "text-danger" } )
+
+                                    </div>
+                                    <br>
+                                    
+                                    <div class="form-group">
+                                        @Html.PasswordFor(e => e.Password, new { id = "password", @class = "form-control", placeholder = "Password *" })
+                                        <span id="result"></span>
+                                        @Html.ValidationMessageFor(e => e.Password ,null, new { @class = "text-danger" })
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        @Html.PasswordFor(e => e.Confirmpwd, new { @class = "form-control", placeholder = "Confirm Password *" })
+                                        @Html.ValidationMessageFor(e => e.Confirmpwd ,null, new { @class = "text-danger" })
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <div class="maxl">
+                                            @Html.RadioButtonFor(e => e.Gender, "Male", new { @class = "radio inline" })<span> Male </span>
+                                            @Html.RadioButtonFor(e => e.Gender, "Female", new { @class = "radio inline" })<span>Female </span>
+                                        </div>
+                                    </div>
+                                   @* <div class="form-group">
+                                        <select class="form-control">
+                                            <option class="hidden" selected disabled>Please select your Sequrity Question</option>
+                                            <option>What is your Birthdate?</option>
+                                            <option>What is Your old Phone Number</option>
+                                            <option>What is your Pet Name?</option>
+                                        </select>
+                                    </div>*@
+                                    <br>
+                                    
+                                  
+                                    <input type="submit" class="btn btn-success  btnRegister" value="Register" />
+
+                                    @if (!ViewData.ModelState.IsValid)
+                                    {
+                                        <div class="alert alert-danger">
+                                            <strong>Error:</strong> @Html.ValidationSummary()
+                                        </div>
+                                    }
+
+                               @* </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $(function () {
+                    //var msg = '@ViewData["result"]';
+                    //if (msg == '1') {
+                    //    alert("User Details Inserted Successfully");
+                    //    window.location.href = "@Url.Action("Register", "UserRegisteration")";
+                    //}
+                    $(input).siblings('.text-danger').empty();
+
+                    var failed = '@TempData["loginflag"]';
+                    if (failed === "loginfailed") {
+                        var loginmessage = '@TempData["LoginFailed"]';
+                        if (loginmessage != null) {
+                            alertify.success(loginmessage);
+                        }
+                    }
+                });
+            </script>
+
+        </div>
+    }
+</body>
+</html>
